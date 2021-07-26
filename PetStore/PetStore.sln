@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31515.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetStore", "src\PetStore\PetStore.csproj", "{B79742FD-C73E-4049-90A9-554E57D1B214}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0FA3F660-3DBD-4285-8207-13BF6DDC3A0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetStore.ApiClient", "src\PetStore.ApiClient\PetStore.ApiClient.csproj", "{D39878E9-B3E8-436F-8A60-D97F992DF23F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{B6519F9F-870A-4CF2-BE23-10475B0EAEF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiClientGenerator", "tools\ApiClientGenerator\ApiClientGenerator.csproj", "{C8B8DEB5-1B9B-4036-9180-D752572B4EBC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B79742FD-C73E-4049-90A9-554E57D1B214}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B79742FD-C73E-4049-90A9-554E57D1B214}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B79742FD-C73E-4049-90A9-554E57D1B214}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B79742FD-C73E-4049-90A9-554E57D1B214}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D39878E9-B3E8-436F-8A60-D97F992DF23F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D39878E9-B3E8-436F-8A60-D97F992DF23F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D39878E9-B3E8-436F-8A60-D97F992DF23F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D39878E9-B3E8-436F-8A60-D97F992DF23F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8B8DEB5-1B9B-4036-9180-D752572B4EBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8B8DEB5-1B9B-4036-9180-D752572B4EBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8B8DEB5-1B9B-4036-9180-D752572B4EBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8B8DEB5-1B9B-4036-9180-D752572B4EBC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B79742FD-C73E-4049-90A9-554E57D1B214} = {0FA3F660-3DBD-4285-8207-13BF6DDC3A0E}
+		{D39878E9-B3E8-436F-8A60-D97F992DF23F} = {0FA3F660-3DBD-4285-8207-13BF6DDC3A0E}
+		{C8B8DEB5-1B9B-4036-9180-D752572B4EBC} = {B6519F9F-870A-4CF2-BE23-10475B0EAEF4}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A009BDD9-3B59-4D0A-882B-4BE5493AAAD0}
+	EndGlobalSection
+EndGlobal
