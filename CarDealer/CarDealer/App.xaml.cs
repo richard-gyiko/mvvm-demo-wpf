@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System.ComponentModel;
 using System.Windows;
 
@@ -26,7 +27,7 @@ namespace CarDealer
                  })
                 .ConfigureServices((hostContext, services) =>
                 {
-                    services.AddValidatorsFromAssembly(typeof(ObservableObject).Assembly);
+                    services.AddValidatorsFromAssembly(typeof(InventoryViewModel).Assembly);
                     services.AddTransient<InventoryViewModel>();
                 })
                 .ConfigureLogging(logging =>

@@ -1,10 +1,10 @@
 ﻿using FluentValidation.Results;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace CarDealer.ViewModel.Abstractions
@@ -61,14 +61,14 @@ namespace CarDealer.ViewModel.Abstractions
 
 
         #region overrides
-        protected override void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        protected override void OnPropertyChanged(PropertyChangedEventArgs e)
         {
             if (ValidateOnPropertyChanged)
             {
                 Validate();
             }
 
-            base.OnPropertyChanged(propertyName);
+            base.OnPropertyChanged(e);
         }
         #endregion
 

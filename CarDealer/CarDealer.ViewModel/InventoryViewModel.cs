@@ -1,8 +1,10 @@
 ﻿using CarDealer.ViewModel.Entities;
 using FluentValidation;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Windows.Input;
+using System.Threading.Tasks;
 
 namespace CarDealer.ViewModel
 {
@@ -25,25 +27,28 @@ namespace CarDealer.ViewModel
         }
 
 
-        private RelayCommand _addNewCarCommand;
+        private IAsyncRelayCommand _addNewCarCommand;
 
-        public RelayCommand AddNewCarCommand
+        public IAsyncRelayCommand AddNewCarCommand => _addNewCarCommand ??= new AsyncRelayCommand(
+            execute: AddNewCarAsync,
+            canExecute: () => !NewCar.HasErrors && !NewCar.IsEmpty);
+
+        private async Task AddNewCarAsync()
         {
-            get
-            {
-                return _addNewCarCommand ??= new RelayCommand(
-                    execute: () =>
-                    {
-                        _cars.Insert(0, NewCar.ToCar());
-                        NewCar.Reset();
-                    },
-                    canExecute: () => !NewCar.HasErrors && !NewCar.IsEmpty);
-            }
+            var car = NewCar.ToCar();
+
+            // Emulate API call
+            await Task.Delay(750);
+
+            _cars.Insert(0, car);
+
+            NewCar.Reset();
         }
+
 
         private void NewCar_ErrorsChanged(object sender, DataErrorsChangedEventArgs e)
         {
-            AddNewCarCommand.RaiseCanExecuteChanged();
+            AddNewCarCommand.NotifyCanExecuteChanged();
         }
     }
 }

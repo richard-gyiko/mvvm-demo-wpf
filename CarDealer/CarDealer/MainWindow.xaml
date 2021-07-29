@@ -8,26 +8,23 @@
         d:DataContext="{d:DesignInstance Type=viewmodel:InventoryViewModel}"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Style x:Key="InputTextBoxStyle" TargetType="TextBox">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)[0].ErrorContent}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Row="0" Grid.Column="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-
-            <Button Grid.Column="1" Content="Find" Command="{Binding FindCommand}"/>
-        </Grid>
-
-        <ListView Grid.Row="1" Grid.Column="0" ItemsSource="{Binding Cars}">
+        <ListView Grid.Column="0" ItemsSource="{Binding Cars}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
@@ -39,17 +36,21 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <StackPanel Grid.Row="1" Grid.Column="1">
+        <StackPanel Grid.Column="1">
             <TextBlock Text="Manufacturer"/>
-            <TextBox Text="{Binding NewCar.Manufacturer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
+            <TextBox Text="{Binding NewCar.Manufacturer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
+                     Style="{StaticResource InputTextBoxStyle}"/>
             
             <TextBlock Text="Model"/>
-            <TextBox Text="{Binding NewCar.Model, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
+            <TextBox Text="{Binding NewCar.Model, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
+                     Style="{StaticResource InputTextBoxStyle}"/>
             
             <TextBlock Text="Vin"/>
-            <TextBox Text="{Binding NewCar.Vin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
+            <TextBox Text="{Binding NewCar.Vin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
+                     Style="{StaticResource InputTextBoxStyle}"/>
 
             <Button Content="Add" Command="{Binding AddNewCarCommand}"/>
+            <ProgressBar IsIndeterminate="{Binding AddNewCarCommand.IsRunning}"/>
         </StackPanel>
     </Grid>
 </Window>
